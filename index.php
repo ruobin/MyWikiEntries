@@ -21,7 +21,7 @@ echo "<br />";
 //打印所有文件名  
 foreach ($files as $value) {
     //<td><a href="Abstract_factory_pattern.html">Abstract_factory_pattern.html</a></td>
-    if(substr_count($value, ".php") == 0)
+    if(substr_count($value, ".php") == 0 and substr_count($value, ".git") == 0)
     {
 //        $value = iconv("UTF-8","gb2312",$value);
         $title = $value;
