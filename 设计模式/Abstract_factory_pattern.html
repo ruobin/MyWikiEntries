@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Abstract factory pattern - Wikipedia, the free encyclopedia</title>
+<script>document.documentElement.className = document.documentElement.className.replace( /(^|\s)client-nojs(\s|$)/, "$1client-js$2" );</script>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Abstract_factory_pattern","wgTitle":"Abstract factory pattern","wgCurRevisionId":727967992,"wgRevisionId":727967992,"wgArticleId":41836,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgBreakFrames":false,"wgPageContentLanguage":"en","wgPageContentModel":"wikitext","wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgMonthNamesShort":["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"wgRelevantPageName":"Abstract_factory_pattern","wgRelevantArticleId":41836,"wgRequestId":"V4UhuwpAICgAAEFL6fgAAAAE","wgIsProbablyEditable":true,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgWikiEditorEnabledModules":{"toolbar":true,"dialogs":true,"preview":false,"publish":false},"wgBetaFeaturesFeatures":[],"wgMediaViewerOnClick":true,"wgMediaViewerEnabledByDefault":true,"wgVisualEditor":{"pageLanguageCode":"en","pageLanguageDir":"ltr","usePageImages":true,"usePageDescriptions":true},"wgMFMode":"stable","wgMFLazyLoadImages":false,"wgMFLazyLoadReferences":false,"wgPreferredVariant":"en","wgRelatedArticles":null,"wgRelatedArticlesUseCirrusSearch":true,"wgRelatedArticlesOnlyUseCirrusSearch":false,"wgULSCurrentAutonym":"English","wgFlaggedRevsParams":{"tags":{"status":{"levels":1,"quality":2,"pristine":3}}},"wgStableRevisionId":null,"wgCategoryTreePageCategoryOptions":"{\"mode\":0,\"hideprefix\":20,\"showcount\":true,\"namespaces\":false}","wgNoticeProject":"wikipedia","wgCentralNoticeCategoriesUsingLegacy":["Fundraising","fundraising"],"wgWikibaseItemId":"Q333348","wgCentralAuthMobileDomain":true,"wgVisualEditorToolbarScrollOffset":0,"wgMinervaMenuData":{"discovery":[{"name":"home","components":[{"text":"Home","href":"/wiki/Main_Page","class":"mw-ui-icon mw-ui-icon-before mw-ui-icon-mf-home-invert ","data-event-name":"home"}]},{"name":"random","components":[{"text":"Random","href":"/wiki/Special:Random/#/random","class":"mw-ui-icon mw-ui-icon-before mw-ui-icon-mf-random-invert ","id":"randomButton","data-event-name":"random"}]},{"name":"nearby","components":[{"text":"Nearby","href":"/wiki/Special:Nearby","class":"mw-ui-icon mw-ui-icon-before mw-ui-icon-mf-nearby-invert nearby","data-event-name":"nearby"}],"class":"jsonly"}],"personal":[{"name":"watchlist","components":[{"text":"Watchlist","href":"/w/index.php?title=Special:UserLogin\u0026returnto=Special%3AWatchlist\u0026warning=mobile-frontend-watchlist-purpose","class":"mw-ui-icon mw-ui-icon-before mw-ui-icon-mf-watchlist-invert ","data-event-name":"watchlist"}],"class":"jsonly"},{"name":"settings","components":[{"text":"Settings","href":"/w/index.php?title=Special:MobileOptions\u0026returnto=Abstract+factory+pattern","class":"mw-ui-icon mw-ui-icon-before mw-ui-icon-mf-settings-invert ","data-event-name":"settings"}]},{"name":"auth","components":[{"text":"Log in","href":"/w/index.php?title=Special:UserLogin\u0026returnto=Abstract+factory+pattern\u0026returntoquery=welcome%3Dyes","class":"mw-ui-icon mw-ui-icon-before mw-ui-icon-mf-anonymous-invert ","data-event-name":"login"}],"class":"jsonly"}],"sitelinks":[{"name":"about","components":[{"text":"About Wikipedia","href":"/wiki/Wikipedia:About","class":""}]},{"name":"disclaimers","components":[{"text":"Disclaimers","href":"/wiki/Wikipedia:General_disclaimer","class":""}]}]},"wgMinervaTocEnabled":true,"wgMFDescription":null});mw.loader.implement("user.options",function($,jQuery,require,module){mw.user.options.set({"variant":"en"});});mw.loader.implement("user.tokens",function ( $, jQuery, require, module ) {
+mw.user.tokens.set({"editToken":"+\\","patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});/*@nomin*/;
+
+});mw.loader.load(["mediawiki.page.startup","skins.minerva.scripts.top","ext.centralNotice.bannerController.mobile","ext.centralauth.centralautologin","ext.quicksurveys.init"]);});</script>
+<link rel="stylesheet" href="https://en.m.wikipedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=ext.gadget.switcher%7Cext.pygments%7Cmediawiki.raggett%7Cmediawiki.ui.button%2Cicon%7Cskins.minerva.base.reset%2Cstyles%7Cskins.minerva.content.styles%7Cskins.minerva.icons.images%7Cskins.minerva.tablet.styles&amp;only=styles&amp;skin=minerva&amp;target=mobile"/>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<script async="" src="https://en.m.wikipedia.org/w/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=minerva&amp;target=mobile"></script>
+<meta name="generator" content="MediaWiki 1.28.0-wmf.8"/>
+<meta name="referrer" content="origin-when-cross-origin"/>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0, width=device-width"/>
+<link rel="alternate" href="android-app://org.wikipedia/http/en.m.wikipedia.org/wiki/Abstract_factory_pattern"/>
+<link rel="apple-touch-icon" href="https://en.m.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="alternate" type="application/x-wiki" title="Edit this page" href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit"/>
+<link rel="edit" title="Edit this page" href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit"/>
+<link rel="apple-touch-icon" href="https://en.m.wikipedia.org/static/apple-touch/wikipedia.png"/>
+<link rel="shortcut icon" href="https://en.m.wikipedia.org/static/favicon/wikipedia.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="https://en.m.wikipedia.org/w/opensearch_desc.php" title="Wikipedia (en)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://en.wikipedia.org/w/api.php?action=rsd"/>
+<link rel="copyright" href="https://creativecommons.org/licenses/by-sa/3.0/"/>
+<link rel="canonical" href="https://en.wikipedia.org/wiki/Abstract_factory_pattern"/>
+<link rel="dns-prefetch" href="https://login.wikimedia.org/"/>
+<link rel="dns-prefetch" href="https://meta.wikimedia.org/" />
+</head>
+<body class="mediawiki ltr sitedir-ltr stable skin-minerva action-view">
+
+<div id="mw-mf-viewport">
+	<!--[if lt IE 9]>
+   <script>
+      document.createElement('nav');
+   </script>
+<![endif]-->
+
+	<nav id="mw-mf-page-left" class="navigation-drawer view-border-box">
+		
+	</nav>
+	<div id="mw-mf-page-center">
+		<div class="banner-container">
+			<div id="siteNotice"></div>
+
+		</div>
+		<div class="header-container">
+			<div class="header">
+				<div><a title="Open main menu" href="https://en.m.wikipedia.org/wiki/Special:MobileMenu" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-mainmenu main-menu-button" id="mw-mf-main-menu-button">Open main menu</a></div><form action="https://en.m.wikipedia.org/w/index.php" class="search-box">
+	<div class="mw-ui-icon mw-ui-icon-element mw-ui-icon-magnifying-glass-white button-wrapper no-js-only">
+		<input type="submit" name="fulltext" value="Search" title="Search Wikipedia for this text" class="mw-ui-button mw-ui-progressive fulltext-search"/>
+	</div>
+	<div class="input-wrapper">
+		<input type="search" name="search" placeholder="Search Wikipedia" title="Search Wikipedia [f]" accesskey="f" id="searchInput" class="search" autocomplete="off"/>
+	</div>
+</form>
+
+			</div>
+		</div>
+		<div id="content" class="mw-body">
+			<div class="pre-content heading-holder"><ul id="page-actions" class="hlist jsonly"><li id="ca-edit" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled" title="Edit the lead section of this page."><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=0">Edit this page</a></li><li id="ca-watch" class="mw-ui-icon mw-ui-icon-element icon-32px watch-this-article"><a href="https://en.m.wikipedia.org/w/index.php?title=Special:UserLogin&amp;returnto=Abstract+factory+pattern" title="Add this page to your watchlist [w]" accesskey="w"></a></li></ul><h1 id="section_0">Abstract factory pattern</h1></div><div id="bodyContent" class="content"><div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><div class="mf-section-0"><table class="metadata plainlinks ambox ambox-content ambox-Refimprove" role="presentation"><tr><td class="mbox-image">
+<div style="width:52px"><a href="https://en.m.wikipedia.org/wiki/File:Question_book-new.svg" class="image"><img alt="" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/50px-Question_book-new.svg.png" width="50" height="39" srcset="//upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/75px-Question_book-new.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/9/99/Question_book-new.svg/100px-Question_book-new.svg.png 2x" data-file-width="512" data-file-height="399"></a></div>
+</td>
+<td class="mbox-text"><span class="mbox-text-span">This article <b>needs additional citations for <a href="https://en.m.wikipedia.org/wiki/Wikipedia:Verifiability" title="Wikipedia:Verifiability">verification</a></b>. <span class="hide-when-compact">Please help <a class="external text" href="https://en.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit">improve this article</a> by <a href="https://en.m.wikipedia.org/wiki/Help:Introduction_to_referencing_with_Wiki_Markup/1" title="Help:Introduction to referencing with Wiki Markup/1">adding citations to reliable sources</a>. Unsourced material may be challenged and removed.</span> <small><i>(December 2008)</i></small> <small class="hide-when-compact"><i>(<a href="https://en.m.wikipedia.org/wiki/Help:Maintenance_template_removal" title="Help:Maintenance template removal">Learn how and when to remove this template message</a>)</i></small></span></td>
+</tr></table><p>The <b>abstract factory <a href="https://en.m.wikipedia.org/wiki/Software_design_pattern" title="Software design pattern">pattern</a></b> provides a way to encapsulate a group of individual <a href="https://en.m.wikipedia.org/wiki/Factory_object" class="mw-redirect" title="Factory object">factories</a> that have a common theme without specifying their concrete classes.<sup id="cite_ref-abstract_factory_1-0" class="reference"><a href="Abstract_factory_pattern.html#cite_note-abstract_factory-1">[1]</a></sup> In normal usage, the client software creates a concrete implementation of the abstract factory and then uses the generic <a href="https://en.m.wikipedia.org/wiki/Interface_(computer_science)" class="mw-redirect" title="Interface (computer science)">interface</a> of the factory to create the concrete <a href="https://en.m.wikipedia.org/wiki/Object_(computer_science)" title="Object (computer science)">objects</a> that are part of the theme. The <a href="https://en.m.wikipedia.org/wiki/Client_(computing)" title="Client (computing)">client</a> doesn't know (or care) which concrete objects it gets from each of these internal factories, since it uses only the generic interfaces of their products.<sup id="cite_ref-abstract_factory_1-1" class="reference"><a href="Abstract_factory_pattern.html#cite_note-abstract_factory-1">[1]</a></sup> This pattern separates the details of implementation of a set of objects from their general usage and relies on object composition, as object creation is implemented in methods exposed in the factory interface.<sup id="cite_ref-bullet_points_2-0" class="reference"><a href="Abstract_factory_pattern.html#cite_note-bullet_points-2">[2]</a></sup></p>
+<p>An example of this would be an abstract factory class <code>DocumentCreator</code> that provides interfaces to create a number of products (e.g. <code>createLetter()</code> and <code>createResume()</code>). The system would have any number of derived concrete versions of the <code>DocumentCreator</code> class like <code>FancyDocumentCreator</code> or <code>ModernDocumentCreator</code>, each with a different implementation of <code>createLetter()</code> and <code>createResume()</code> that would create a corresponding <a href="https://en.m.wikipedia.org/wiki/Object_(computer_science)" title="Object (computer science)">object</a> like <code>FancyLetter</code> or <code>ModernResume</code>. Each of these products is derived from a simple <a href="https://en.m.wikipedia.org/wiki/Abstract_class" class="mw-redirect" title="Abstract class">abstract class</a> like <code>Letter</code> or <code>Resume</code> of which the <a href="https://en.m.wikipedia.org/wiki/Client_(computing)" title="Client (computing)">client</a> is aware. The client code would get an appropriate <a href="https://en.m.wikipedia.org/wiki/Instance_(computer_science)" title="Instance (computer science)">instance</a> of the <code>DocumentCreator</code> and call its <a href="https://en.m.wikipedia.org/wiki/Factory_method" class="mw-redirect" title="Factory method">factory methods</a>. Each of the resulting objects would be created from the same <code>DocumentCreator</code> implementation and would share a common theme (they would all be fancy or modern objects). The client would only need to know how to handle the abstract <code>Letter</code> or <code>Resume</code> class, not the specific version that it got from the concrete factory.</p>
+<p>A <b>factory</b> is the location of a concrete class in the code at which <a href="https://en.m.wikipedia.org/wiki/Object_creation" class="mw-redirect" title="Object creation">objects are constructed</a>. The intent in employing the pattern is to insulate the creation of objects from their usage and to create families of related objects without having to depend on their concrete classes.<sup id="cite_ref-bullet_points_2-1" class="reference"><a href="Abstract_factory_pattern.html#cite_note-bullet_points-2">[2]</a></sup> This allows for new <a href="https://en.m.wikipedia.org/wiki/Subtype" class="mw-redirect" title="Subtype">derived types</a> to be introduced with no change to the code that uses the <a href="https://en.m.wikipedia.org/wiki/Base_class" class="mw-redirect" title="Base class">base class</a>.</p>
+<p>Use of this pattern makes it possible to interchange concrete implementations without changing the code that uses them, even at <a href="https://en.m.wikipedia.org/wiki/Run_time_(program_lifecycle_phase)" title="Run time (program lifecycle phase)">runtime</a>. However, employment of this pattern, as with similar <a href="https://en.m.wikipedia.org/wiki/Design_pattern_(computer_science)" class="mw-redirect" title="Design pattern (computer science)">design patterns</a>, may result in unnecessary complexity and extra work in the initial writing of code. Additionally, higher levels of separation and abstraction can result in systems which are more difficult to debug and maintain.</p>
+<p></p>
+<div id="toc" class="toc-mobile"><h2>Contents</h2></div></div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="Definition">Definition</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=1" title="Edit section: Definition" data-section="1" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-1">
+<p>The essence of the Abstract Factory Pattern is to "Provide an interface for creating families of related or dependent objects without specifying their concrete classes.".<sup id="cite_ref-3" class="reference"><a href="Abstract_factory_pattern.html#cite_note-3">[3]</a></sup></p>
+</div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="Usage">Usage</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=2" title="Edit section: Usage" data-section="2" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-2">
+<p>The <i>factory</i> determines the actual <i>concrete</i> type of <a href="https://en.m.wikipedia.org/wiki/Object_(computer_science)" title="Object (computer science)">object</a> to be created, and it is here that the object is actually created (in C++, for instance, by the <b>new</b> <a href="https://en.m.wikipedia.org/wiki/Operator_(programming)" class="mw-redirect" title="Operator (programming)">operator</a>). However, the factory only returns an <i>abstract</i> <a href="https://en.m.wikipedia.org/wiki/Pointer_(computer_programming)" title="Pointer (computer programming)">pointer</a> to the created <a href="https://en.m.wikipedia.org/wiki/Object_(computer_science)" title="Object (computer science)">concrete object</a>.</p>
+<p>This insulates client code from <a href="https://en.m.wikipedia.org/wiki/Object_creation" class="mw-redirect" title="Object creation">object creation</a> by having clients ask a <a href="https://en.m.wikipedia.org/wiki/Factory_object" class="mw-redirect" title="Factory object">factory object</a> to create an object of the desired <a href="https://en.m.wikipedia.org/wiki/Abstract_type" title="Abstract type">abstract type</a> and to return an abstract pointer to the object.<sup id="cite_ref-4" class="reference"><a href="Abstract_factory_pattern.html#cite_note-4">[4]</a></sup></p>
+<p>As the factory only returns an abstract pointer, the client code (that requested the object from the factory) does not know — and is not burdened by — the actual concrete type of the object that was just created. However, the type of a concrete object (and hence a concrete factory) is known by the abstract factory; for instance, the factory may read it from a configuration file. The client has no need to specify the type, since it has already been specified in the configuration file. In particular, this means:</p>
+<ul><li>The client code has no knowledge whatsoever of the concrete <a href="https://en.m.wikipedia.org/wiki/Data_type" title="Data type">type</a>, not needing to include any <a href="https://en.m.wikipedia.org/wiki/Header_file" class="mw-redirect" title="Header file">header files</a> or <a href="https://en.m.wikipedia.org/wiki/Class_(computer_science)" class="mw-redirect" title="Class (computer science)">class</a> <a href="https://en.m.wikipedia.org/wiki/Declaration_(computer_science)" class="mw-redirect" title="Declaration (computer science)">declarations</a> related to it. The client code deals only with the abstract type. Objects of a concrete type are indeed created by the factory, but the client code accesses such objects only through their <a href="https://en.m.wikipedia.org/wiki/Abstract_interface" class="mw-redirect" title="Abstract interface">abstract interface</a>.<sup id="cite_ref-implementation_5-0" class="reference"><a href="Abstract_factory_pattern.html#cite_note-implementation-5">[5]</a></sup></li>
+<li>Adding new concrete types is done by modifying the client code to use a different factory, a modification that is typically one line in one file. The different factory then creates objects of a <i>different</i> concrete type, but still returns a pointer of the <i>same</i> abstract type as before — thus insulating the client code from change. This is significantly easier than modifying the client code to instantiate a new type, which would require changing <i>every</i> location in the code where a new object is created (as well as making sure that all such code locations also have knowledge of the new concrete type, by including for instance a concrete class header file). If all factory objects are stored globally in a <a href="https://en.m.wikipedia.org/wiki/Singleton_pattern" title="Singleton pattern">singleton</a> object, and all client code goes through the singleton to access the proper factory for object creation, then changing factories is as easy as changing the singleton object.<sup id="cite_ref-implementation_5-1" class="reference"><a href="Abstract_factory_pattern.html#cite_note-implementation-5">[5]</a></sup></li>
+</ul></div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="Structure">Structure</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=3" title="Edit section: Structure" data-section="3" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-3">
+<h3 class="in-block"><span class="mw-headline" id="Class_Diagram">Class Diagram</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=4" title="Edit section: Class Diagram" data-section="4" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h3>
+<div class="center">
+<div class="floatnone"><a href="https://en.m.wikipedia.org/wiki/File:Abstract_factory.svg" class="image"><img alt="Abstract factory.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Abstract_factory.svg/517px-Abstract_factory.svg.png" width="517" height="329" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Abstract_factory.svg/776px-Abstract_factory.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Abstract_factory.svg/1034px-Abstract_factory.svg.png 2x" data-file-width="517" data-file-height="329"></a></div>
+</div>
+<p>The method <code>createButton</code> on the <code>GuiFactory</code> interface returns objects of type <code>Button</code>. What implementation of <code>Button</code> is returned depends on which implementation of <code>GuiFactory</code> is handling the method call.</p>
+<h3 class="in-block"><span class="mw-headline" id="UML_Class_Diagram">UML Class Diagram</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=5" title="Edit section: UML Class Diagram" data-section="5" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h3>
+<div class="center">
+<div class="floatnone"><a href="https://en.m.wikipedia.org/wiki/File:Abstract_factory_UML.svg" class="image"><img alt="Abstract factory UML.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Abstract_factory_UML.svg/677px-Abstract_factory_UML.svg.png" width="677" height="448" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Abstract_factory_UML.svg/1016px-Abstract_factory_UML.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Abstract_factory_UML.svg/1354px-Abstract_factory_UML.svg.png 2x" data-file-width="677" data-file-height="448"></a></div>
+</div>
+<h3 class="in-block"><span class="mw-headline" id="Lepus3_chart_.28legend.29">Lepus3 chart (<a rel="nofollow" class="external text" href="http://www.lepus.org.uk/ref/legend/legend.xml">legend</a>)</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=6" title="Edit section: Lepus3 chart (legend)" data-section="6" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h3>
+<div class="center">
+<div class="floatnone"><a href="https://en.m.wikipedia.org/wiki/File:Abstract_Factory_in_LePUS3_vector.svg" class="image"><img alt="Abstract Factory in LePUS3 vector.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Abstract_Factory_in_LePUS3_vector.svg/451px-Abstract_Factory_in_LePUS3_vector.svg.png" width="451" height="200" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/5/54/Abstract_Factory_in_LePUS3_vector.svg/677px-Abstract_Factory_in_LePUS3_vector.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/5/54/Abstract_Factory_in_LePUS3_vector.svg/902px-Abstract_Factory_in_LePUS3_vector.svg.png 2x" data-file-width="569" data-file-height="252"></a></div>
+</div>
+</div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="Pseudocode">Pseudocode</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=7" title="Edit section: Pseudocode" data-section="7" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-4">
+<p>It should render a button in either a Windows style or Mac OS X style depending on which kind of factory was used. Note that the Application has no idea what kind of GUIFactory it is given or even what kind of Button that factory creates.</p>
+<pre>
+<b>interface</b> Button <b>is</b>
+  <b>method</b> paint()
+
+<b>interface</b> GUIFactory <b>is</b>
+  <b>method</b> createButton()
+      <b>output: </b> a <i>button</i>
+
+<b>class</b> WinFactory implementing GUIFactory <b>is</b>
+  <b>method</b> createButton() <b>is</b>
+      <b>output: </b> a Windows button
+    Return a new WinButton
+
+<b>class</b> OSXFactory implementing GUIFactory <b>is</b>
+  <b>method</b> createButton() <b>is</b>
+      <b>output: </b> an OS X button
+    Return a new OSXButton
+
+<b>class</b> WinButton implementing Button <b>is</b>
+  <b>method</b> paint() <b>is</b>
+    Render a button in a Windows style
+
+<b>class</b> OSXButton implementing Button <b>is</b>
+  <b>method</b> paint() <b>is</b>
+    Render a button in a Mac OS X style
+
+<b>class</b> Application <b>is</b>
+  <b>constructor</b> Application(factory) <b>is</b>
+      <b>input: </b> the GUIFactory <i>factory</i> used to create buttons
+    Button button := factory.createButton()
+    button.paint()
+
+Read the configuration file
+<b>If</b> the OS specified in the configuration file is Windows, <b>then</b>
+  <b>Construct</b> a WinFactory
+  <b>Construct</b> an Application with WinFactory
+<b>else</b>
+  <b>Construct</b> an OSXFactory
+  <b>Construct</b> an Application with OSXFactory
+</pre>
+</div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="C.23_Example">C# Example</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=8" title="Edit section: C# Example" data-section="8" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-5">
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>
+<span class="k">interface</span> <span class="n">IButton</span>
+<span class="p">{</span>
+    <span class="k">void</span> <span class="nf">Paint</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">interface</span> <span class="n">IGUIFactory</span>
+<span class="p">{</span>
+    <span class="n">IButton</span> <span class="nf">CreateButton</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">WinFactory</span> <span class="p">:</span> <span class="n">IGUIFactory</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">IButton</span> <span class="nf">CreateButton</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">WinButton</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">OSXFactory</span> <span class="p">:</span> <span class="n">IGUIFactory</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="n">IButton</span> <span class="nf">CreateButton</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nf">OSXButton</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">WinButton</span> <span class="p">:</span> <span class="n">IButton</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Paint</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//Render a button in a Windows style</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">OSXButton</span> <span class="p">:</span> <span class="n">IButton</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">void</span> <span class="nf">Paint</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="c1">//Render a button in a Mac OS X style</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">Program</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="k">void</span> <span class="nf">Main</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="kt">var</span> <span class="n">appearance</span> <span class="p">=</span> <span class="n">Settings</span><span class="p">.</span><span class="n">Appearance</span><span class="p">;</span>
+
+        <span class="n">IGUIFactory</span> <span class="n">factory</span><span class="p">;</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="n">appearance</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">case</span> <span class="n">Appearance</span><span class="p">.</span><span class="n">Win</span><span class="p">:</span>
+                <span class="n">factory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">WinFactory</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="n">Appearance</span><span class="p">.</span><span class="n">OSX</span><span class="p">:</span>
+                <span class="n">factory</span> <span class="p">=</span> <span class="k">new</span> <span class="n">OSXFactory</span><span class="p">();</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">default</span><span class="p">:</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">NotImplementedException</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="kt">var</span> <span class="n">button</span> <span class="p">=</span> <span class="n">factory</span><span class="p">.</span><span class="n">CreateButton</span><span class="p">();</span>
+        <span class="n">button</span><span class="p">.</span><span class="n">Paint</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="PHP_Example">PHP Example</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=9" title="Edit section: PHP Example" data-section="9" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-6">
+<div class="mw-highlight mw-content-ltr" dir="ltr">
+<pre>
+<span class="k">interface</span> <span class="nx">ButtonInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">Paint</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">interface</span> <span class="nx">GUIFactoryInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">CreateButton</span><span class="p">();</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">WinFactory</span> <span class="k">implements</span> <span class="nx">GUIFactoryInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">CreateButton</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">WinButton</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">OSXFactory</span> <span class="k">implements</span> <span class="nx">GUIFactoryInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">CreateButton</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="nx">OSXButton</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">WinButton</span> <span class="k">implements</span> <span class="nx">ButtonInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">Paint</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"Windows Button"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="nc">OSXButton</span> <span class="k">implements</span> <span class="nx">ButtonInterface</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">Paint</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"OSX Button"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$appearance</span> <span class="o">=</span> <span class="s2">"osx"</span><span class="p">;</span>
+
+<span class="nv">$factory</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+
+<span class="k">switch</span> <span class="p">(</span><span class="nv">$appearance</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="s2">"win"</span><span class="o">:</span>
+        <span class="nv">$factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WinFactory</span><span class="p">();</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">case</span> <span class="s2">"osx"</span><span class="o">:</span>
+        <span class="nv">$factory</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">OSXFactory</span><span class="p">();</span>
+        <span class="k">break</span><span class="p">;</span>
+    <span class="k">default</span><span class="o">:</span>
+        <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nv">$button</span> <span class="o">=</span> <span class="nv">$factory</span><span class="o">-&gt;</span><span class="na">CreateButton</span><span class="p">();</span>
+<span class="nv">$button</span><span class="o">-&gt;</span><span class="na">Paint</span><span class="p">();</span>
+</pre></div>
+</div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="See_also">See also</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=10" title="Edit section: See also" data-section="10" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-7">
+<ul><li><a href="https://en.m.wikipedia.org/wiki/Concrete_class" class="mw-redirect" title="Concrete class">Concrete class</a></li>
+<li><a href="https://en.m.wikipedia.org/wiki/Software_design_pattern" title="Software design pattern">Software design pattern</a></li>
+<li><a href="https://en.m.wikipedia.org/wiki/Factory_method_pattern" title="Factory method pattern">Factory method pattern</a></li>
+<li><a href="https://en.m.wikipedia.org/wiki/Object_creation" class="mw-redirect" title="Object creation">Object creation</a></li>
+</ul></div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="References">References</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=11" title="Edit section: References" data-section="11" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-8">
+<div class="reflist columns references-column-count references-column-count-3" style="-moz-column-count: 3; -webkit-column-count: 3; column-count: 3; list-style-type: decimal;">
+<ol class="references"><li id="cite_note-abstract_factory-1"><span class="mw-cite-backlink">^ <a href="Abstract_factory_pattern.html#cite_ref-abstract_factory_1-0"><sup><i><b>a</b></i></sup></a> <a href="Abstract_factory_pattern.html#cite_ref-abstract_factory_1-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Freeman, Eric; Robson, Elisabeth; Sierra, Kathy; Bates, Bert (2004). Hendrickson, Mike; Loukides, Mike, eds. <a rel="nofollow" class="external text" href="http://shop.oreilly.com/product/9780596007126.do">"Head First Design Patterns"</a> <span style="font-size:85%;">(paperback)</span> <b>1</b>. O'REILLY: 156. <a href="https://en.m.wikipedia.org/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a> <a href="https://en.m.wikipedia.org/wiki/Special:BookSources/978-0-596-00712-6" title="Special:BookSources/978-0-596-00712-6">978-0-596-00712-6</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2012-09-12</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+factory+pattern&amp;rft.atitle=Head+First+Design+Patterns&amp;rft.au=Bates%2C+Bert&amp;rft.aufirst=Eric&amp;rft.aulast=Freeman&amp;rft.au=Robson%2C+Elisabeth&amp;rft.au=Sierra%2C+Kathy&amp;rft.date=2004&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F9780596007126.do&amp;rft.isbn=978-0-596-00712-6&amp;rft.pages=156&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=1" class="Z3988"><span style="display:none;"> </span></span></span></li>
+<li id="cite_note-bullet_points-2"><span class="mw-cite-backlink">^ <a href="Abstract_factory_pattern.html#cite_ref-bullet_points_2-0"><sup><i><b>a</b></i></sup></a> <a href="Abstract_factory_pattern.html#cite_ref-bullet_points_2-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation journal">Freeman, Eric; Robson, Elisabeth; Sierra, Kathy; Bates, Bert (2004). Hendrickson, Mike; Loukides, Mike, eds. <a rel="nofollow" class="external text" href="http://shop.oreilly.com/product/9780596007126.do">"Head First Design Patterns"</a> <span style="font-size:85%;">(paperback)</span> <b>1</b>. O'REILLY: 162. <a href="https://en.m.wikipedia.org/wiki/International_Standard_Book_Number" title="International Standard Book Number">ISBN</a> <a href="https://en.m.wikipedia.org/wiki/Special:BookSources/978-0-596-00712-6" title="Special:BookSources/978-0-596-00712-6">978-0-596-00712-6</a><span class="reference-accessdate">. Retrieved <span class="nowrap">2012-09-12</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+factory+pattern&amp;rft.atitle=Head+First+Design+Patterns&amp;rft.au=Bates%2C+Bert&amp;rft.aufirst=Eric&amp;rft.aulast=Freeman&amp;rft.au=Robson%2C+Elisabeth&amp;rft.au=Sierra%2C+Kathy&amp;rft.date=2004&amp;rft.genre=article&amp;rft_id=http%3A%2F%2Fshop.oreilly.com%2Fproduct%2F9780596007126.do&amp;rft.isbn=978-0-596-00712-6&amp;rft.pages=162&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.volume=1" class="Z3988"><span style="display:none;"> </span></span></span></li>
+<li id="cite_note-3"><span class="mw-cite-backlink"><b><a href="Abstract_factory_pattern.html#cite_ref-3">^</a></b></span> <span class="reference-text"><cite class="citation web">Gamma, Erich; Richard Helm; Ralph Johnson; John M. Vlissides (2009-10-23). <a rel="nofollow" class="external text" href="http://www.informit.com/articles/article.aspx?p=1398599">"Design Patterns: Abstract Factory"</a>. informIT. Archived from <a rel="nofollow" class="external text" href="http://www.informit.com/">the original</a> on 2009-10-23<span class="reference-accessdate">. Retrieved <span class="nowrap">2012-05-16</span></span>. <q>Object Creational: Abstract Factory: Intent: Provide an interface for creating families of related or dependent objects without specifying their concrete classes.</q></cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+factory+pattern&amp;rft.aufirst=Erich&amp;rft.au=John+M.+Vlissides&amp;rft.aulast=Gamma&amp;rft.au=Ralph+Johnson&amp;rft.au=Richard+Helm&amp;rft.btitle=Design+Patterns%3A+Abstract+Factory&amp;rft.date=2009-10-23&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.informit.com%2F&amp;rft.pub=informIT&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;"> </span></span></span></li>
+<li id="cite_note-4"><span class="mw-cite-backlink"><b><a href="Abstract_factory_pattern.html#cite_ref-4">^</a></b></span> <span class="reference-text"><cite class="citation web">Veeneman, David (2009-10-23). <a rel="nofollow" class="external text" href="http://www.codeproject.com/Articles/4079/Object-Design-for-the-Perplexed">"Object Design for the Perplexed"</a>. The Code Project. Archived from <a rel="nofollow" class="external text" href="http://www.codeproject.com/">the original</a> on 2011-09-18<span class="reference-accessdate">. Retrieved <span class="nowrap">2012-05-16</span></span>. <q>The factory insulates the client from changes to the product or how it is created, and it can provide this insulation across objects derived from very different abstract interfaces.</q></cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+factory+pattern&amp;rft.aufirst=David&amp;rft.aulast=Veeneman&amp;rft.btitle=Object+Design+for+the+Perplexed&amp;rft.date=2009-10-23&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.codeproject.com%2F&amp;rft.pub=The+Code+Project&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;"> </span></span></span></li>
+<li id="cite_note-implementation-5"><span class="mw-cite-backlink">^ <a href="Abstract_factory_pattern.html#cite_ref-implementation_5-0"><sup><i><b>a</b></i></sup></a> <a href="Abstract_factory_pattern.html#cite_ref-implementation_5-1"><sup><i><b>b</b></i></sup></a></span> <span class="reference-text"><cite class="citation web"><a rel="nofollow" class="external text" href="http://www.oodesign.com/abstract-factory-pattern.html">"Abstract Factory: Implementation"</a>. OODesign.com<span class="reference-accessdate">. Retrieved <span class="nowrap">2012-05-16</span></span>.</cite><span title="ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fen.wikipedia.org%3AAbstract+factory+pattern&amp;rft.btitle=Abstract+Factory%3A+Implementation&amp;rft.genre=unknown&amp;rft_id=http%3A%2F%2Fwww.oodesign.com%2Fabstract-factory-pattern.html&amp;rft.pub=OODesign.com&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook" class="Z3988"><span style="display:none;"> </span></span></span></li>
+</ol></div>
+</div><h2 class="section-heading in-block"><div class="mw-ui-icon mw-ui-icon-element indicator"></div><span class="mw-headline" id="External_links">External links</span><span><a href="https://en.m.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;action=edit&amp;section=12" title="Edit section: External links" data-section="12" class="mw-ui-icon mw-ui-icon-element mw-ui-icon-edit-enabled edit-page">Edit</a></span></h2><div class="mf-section-9">
+<table class="mbox-small plainlinks sistersitebox" style="border:1px solid #aaa;background-color:#f9f9f9"><tr><td class="mbox-image"><a href="https://en.m.wikipedia.org/wiki/File:Wikibooks-logo-en-noslogan.svg" class="image"><img alt="" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/40px-Wikibooks-logo-en-noslogan.svg.png" width="40" height="40" srcset="//upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/60px-Wikibooks-logo-en-noslogan.svg.png 1.5x, //upload.wikimedia.org/wikipedia/commons/thumb/d/df/Wikibooks-logo-en-noslogan.svg/80px-Wikibooks-logo-en-noslogan.svg.png 2x" data-file-width="400" data-file-height="400"></a></td>
+<td class="mbox-text plainlist">The Wikibook <i><a href="https://en.wikibooks.org/wiki/Computer_Science_Design_Patterns" class="extiw" title="wikibooks:Computer Science Design Patterns">Computer Science Design Patterns</a></i> has a page on the topic of: <i><b><a href="https://en.wikibooks.org/wiki/Computer_Science_Design_Patterns/Abstract_Factory" class="extiw" title="wikibooks:Computer Science Design Patterns/Abstract Factory">Abstract Factory in action</a></b></i></td>
+</tr></table><ul><li><img alt="" src="https://upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/12px-Commons-logo.svg.png" width="12" height="16" srcset="//upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/18px-Commons-logo.svg.png 1.5x, //upload.wikimedia.org/wikipedia/en/thumb/4/4a/Commons-logo.svg/24px-Commons-logo.svg.png 2x" data-file-width="1024" data-file-height="1376"> Media related to <a href="https://commons.wikimedia.org/wiki/Abstract_factory" class="extiw" title="commons:Abstract factory">Abstract factory</a> at Wikimedia Commons</li>
+<li><a rel="nofollow" class="external text" href="http://www.lepus.org.uk/ref/companion/AbstractFactory.xml">Abstract Factory</a> UML diagram + formal specification in LePUS3 and Class-Z (a Design Description Language)</li>
+<li><a rel="nofollow" class="external text" href="http://patterns.pl/abstractfactory.html">Abstract Factory</a> Abstract Factory implementation example</li>
+</ul></div><noscript><img src="https://en.wikipedia.org/wiki/Special:CentralAutoLogin/start?type=1x1&amp;mobile=1" alt="" title="" width="1" height="1" style="border: none; position: absolute;" /></noscript></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="https://en.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;oldid=727967992">https://en.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;oldid=727967992</a>"</div>
+</div><div class="post-content" id="page-secondary-actions"><a id="language-switcher" class="languageSelector mw-ui-button button" href="https://en.m.wikipedia.org/wiki/Special:MobileLanguages/Abstract_factory_pattern">Read in another language</a></div><div class="last-modified-bar view-border-box post-content">
+	<div id="mw-mf-last-modified" class="truncated-text">
+		<a href="https://en.m.wikipedia.org/wiki/Special:History/Abstract_factory_pattern"
+			data-user-name="Miladrahimi93"
+			data-user-gender="unknown"
+			data-timestamp="1467446038">
+			Last edited on 2 July 2016, at 07:53
+		</a>
+	</div>
+</div>
+		</div>
+		<div id="footer" class="post-content"><ul class="footer-info"><li id="footer-info-mobile-switcher"><h2><img src="https://en.m.wikipedia.org/static/images/mobile/wikipedia-wordmark-en.png" alt="Wikipedia&lt;sup&gt;®&lt;/sup&gt;" height="15" width="97"/><sup>®</sup></h2>
+<ul>
+	<li>Mobile</li><li><a id="mw-mf-display-toggle" href="https://en.wikipedia.org/w/index.php?title=Abstract_factory_pattern&amp;mobileaction=toggle_view_desktop">Desktop</a></li>
+</ul></li><li id="footer-info-mobile-license">Content is available under <a class="external" rel="nofollow" href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a> unless otherwise noted.</li></ul><ul class="footer-places"><li id="footer-places-terms-use"><a href="https://m.wikimediafoundation.org/wiki/Terms_of_Use">Terms of Use</a></li><li id="footer-places-privacy"><a href="https://wikimediafoundation.org/wiki/Privacy_policy" class="extiw" title="wmf:Privacy policy">Privacy</a></li></ul></div>
+	</div>
+</div>
+<script>(window.RLQ=window.RLQ||[]).push(function(){mw.loader.state({"mobile.usermodule":"ready","user":"ready"});mw.loader.load(["mediawiki.toc","mediawiki.user","mediawiki.hidpi","skins.minerva.scripts","skins.minerva.watchstar","skins.minerva.editor","skins.minerva.toggling","mobile.site","ext.centralNotice.choiceData","ext.eventLogging.subscriber","ext.gadget.switcher","ext.visualEditor.targetLoader","ext.wikimediaEvents","ext.navigationTiming","schema.UniversalLanguageSelector"]);});</script><script>(window.RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":79,"wgHostname":"mw1170"});});</script>		</body>
+		</html>
+		
